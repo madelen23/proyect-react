@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'docker-agents'  
+    }
 
     tools {
         nodejs 'NodeJS-24' 
