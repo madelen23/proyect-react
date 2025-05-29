@@ -37,6 +37,7 @@ pipeline {
                 archiveArtifacts artifacts: 'build/**', fingerprint: true
             }
         }
+        stage()
     }
 
     post {
