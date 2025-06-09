@@ -7,12 +7,18 @@ pipeline {
         nodejs 'NodeJS-24'
     }
 
-
     stages {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/madelen23/proyect-react.git', branch: 'main'
+                // Usamos el checkout con credenciales SSH configuradas en Jenkins
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: 'main']],
+                          userRemoteConfigs: [[
+                              url: 'git@github.com:madelen23/prueba-jenkins.git',
+                              credentialsId: 'github-private-key'  
+                          ]]
+                ])
             }
         }
 
@@ -47,4 +53,3 @@ pipeline {
         }
     }
 }
-
