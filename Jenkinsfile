@@ -7,17 +7,12 @@ pipeline {
         nodejs 'NodeJS-24'
     }
 
+
     stages {
 
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', 
-                          branches: [[name: 'main']],
-                          userRemoteConfigs: [[
-                              url: 'https://github.com/madelen23/proyect-react.git',
-                              credentialsId: 'github-private-key'  
-                          ]]
-                ])
+                git url: 'https://github.com/madelen23/proyect-react.git', branch: 'main'
             }
         }
 
