@@ -11,7 +11,6 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                // Usamos el checkout con credenciales SSH configuradas en Jenkins
                 checkout([$class: 'GitSCM', 
                           branches: [[name: 'main']],
                           userRemoteConfigs: [[
